@@ -3,19 +3,27 @@ import api from '../interceptors/auth.interceptor';
 import ProductItem from '../components/ProductItem.jsx';
 import CartSummary from '../components/CartSummary.jsx';
 import './ProductList.css';
+import { useSearchParams } from "react-router-dom";
+
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
 
+  //find current page
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [currentPage, setCurrentPage] = useState(Number(searchParams.get("page")) || 1);
   //for pagination
   const itemsPerPage = 10;//TODO: make this a choice for client
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentProducts = products.slice(indexOfFirstItem, indexOfLastItem);
-
   const totalPages = Math.ceil(products.length / itemsPerPage);
+
+  const changePage = (page) => {
+    setCurrentPage(page);
+    setSearchParams({ page });
+  };
   
   useEffect(() => {
     api.get('/products')
@@ -50,7 +58,7 @@ const ProductList = () => {
       <div className="pagination">
         <button
         disabled = {currentPage === 1}
-        onClick={()=>{setCurrentPage(currentPage-1)}}>
+        onClick={()=>{changePage(currentPage - 1)}}>
           Prev
         </button>
 
@@ -59,7 +67,7 @@ const ProductList = () => {
         </span>
         <button
         disabled = {currentPage === totalPages}
-        onClick={()=>{setCurrentPage(currentPage+1)}}>
+        onClick={()=>{ changePage(currentPage + 1)}}>
           Next
         </button>
       </div>
