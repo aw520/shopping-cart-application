@@ -1,4 +1,4 @@
-// TODO: Set up Axios request and response interceptors
+// Axios request and response interceptors
 import axios from 'axios';
 
 const api = axios.create({

@@ -9,8 +9,9 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  
   useEffect(() => {
-    api.get('/products')
+    api.get('/products?limit=0')
       .then((res) => {
         //console.log(res.data);
         setProduct(res.data.products.find((item) => item.id === Number(id)));
@@ -22,7 +23,7 @@ const ProductDetail = () => {
       });
   }, []);
 
-  // TODO: Fetch product details from an API using the product id from useParams
+  // Fetch product details from an API using the product id from useParams
   if (loading) {
     return <p>Loading product details...</p>;
   }

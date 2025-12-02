@@ -10,9 +10,7 @@ import {
 } from '../store/cartSlice/cart.slice';
 import './ProductItem.css';
 const ProductItem = ({ product }) => {
-  // TODO: Implement the isProductInCart function.
-  // TODO: Implement the getProductQuantity function.
-  // TODO: Handle the onClick action for the add, remove, and "Add to Cart" buttons.
+  // Handle the onClick action for the add, remove, and "Add to Cart" buttons.
   const { items, totalQuantity, totalPrice } = useSelector(
     (state) => state.cart
   );

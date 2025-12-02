@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-// TODO: Implement the reducers to handle cart operations
+// cart operations
 const cartSlice = createSlice({
   name: 'cart',
   initialState: {

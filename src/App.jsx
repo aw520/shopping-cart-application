@@ -5,7 +5,7 @@ import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 import NotFound from './pages/NotFound';
 const App = () => {
-  // TODO: Use React Router to set up routes for ProductList, ProductDetail, and Cart components so they render correctly based on the URL path.
+  // routes for ProductList, ProductDetail, and Cart components.
   return (
       <BrowserRouter>
           <Routes>

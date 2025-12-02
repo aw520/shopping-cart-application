@@ -1,16 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { increaseItemQuantity, decreaseItemQuantity, removeItemFromCart, clearCart} from '../store/cartSlice/cart.slice';
 import './Cart.css';
 
 const Cart = () => {
-  // TODO: Use Redux to access and manage the cart state
-  // TODO: Implement the onClick action for the "Remove" button
-  // TODO: Implement the onClick action for the "Clear Cart" button
   //const items = [];
   const dispatch = useDispatch();
   const { items, totalQuantity, totalPrice } = useSelector((state) => state.cart);
   return (
+    <>
+    <Link to="/" className="back-link">
+        ← Back to Products
+      </Link>
     <div className="cart-container">
       <h2 className="cart-title">Shopping Cart</h2>
       {items.length === 0 ? (
@@ -58,6 +60,7 @@ const Cart = () => {
         </>
       )}
     </div>
+    </>
   );
 };
 
