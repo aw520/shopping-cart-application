@@ -16,7 +16,7 @@ const ProductItem = ({ product }) => {
   );
   const dispatch = useDispatch();
   const isProductInCart = (productId) => {
-    return items.some((item) => item.id === productId);
+    return items.some((item) => item.id === productId && item.quantity >0);
   };
 
   const getProductQuantity = (productId) => {

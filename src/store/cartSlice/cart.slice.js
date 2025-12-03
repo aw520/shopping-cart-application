@@ -9,9 +9,13 @@ const cartSlice = createSlice({
   },
   reducers: {
     addItemToCart(state, action) {
-      const product = { ...action.payload, quantity: 1 };
-      //product.quantity = 1;
-      state.items.push(product);
+      const product = action.payload;
+      const existing = state.items.find((item) => item.id === product.id);
+      if (existing) {//check existence first, avoid duplicate adding
+        existing.quantity += 1;
+      } else {
+        state.items.push({ ...product, quantity: 1 });
+      }
       state.totalQuantity += 1;
       state.totalPrice += product.price;
       state.totalPrice = Math.round(state.totalPrice * 100) / 100
