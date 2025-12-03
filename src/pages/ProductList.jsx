@@ -14,7 +14,7 @@ const ProductList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [currentPage, setCurrentPage] = useState(Number(searchParams.get("page")) || 1);
   //for pagination
-  const itemsPerPage = 10;//TODO: make this a choice for client
+  const itemsPerPage = 12;//TODO: make this a choice for client
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentProducts = products.slice(indexOfFirstItem, indexOfLastItem);
