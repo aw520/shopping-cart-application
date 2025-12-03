@@ -27,6 +27,8 @@ The project demonstrates clean frontend architecture using **React**, **Redux**,
 - **🚫 404 Handling**
   - Includes a custom 404 page for undefined routes to enhance user experience.
 
+- **📄 Pagination Support**
+  - Adds client-side pagination with URL state (?page=) to preserve page position when navigating between views.
 ---
 
 ## 🧠 Technologies Used
