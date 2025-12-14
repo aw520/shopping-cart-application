@@ -38,6 +38,11 @@ const cartSlice = createSlice({
         state.totalPrice -= action.payload.price;
         state.totalPrice = Math.round(state.totalPrice * 100) / 100
       }
+      if(product.quantity == 0){
+        state.items = state.items.filter(
+          (item) => item.id !== action.payload.id
+        );
+      }
     },
     removeItemFromCart(state, action) {
       state.items = state.items.filter((item) => item.id !== action.payload.id);

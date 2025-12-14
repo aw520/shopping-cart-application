@@ -53,6 +53,14 @@
   background: #4338ca;
 }
 
+.product-quantity-container {
+  display: flex;
+  justify-content: center;   
+  align-items: center;       /* vertical alignment */
+  gap: 10px;                
+  margin: 0 auto;           
+}
+
 .remove-button {
   background: #ef4444;
 }
